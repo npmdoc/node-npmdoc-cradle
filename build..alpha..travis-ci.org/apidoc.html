@@ -1,0 +1,3211 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/flatiron/cradle#readme"
+
+    >cradle (v0.7.1)</a>
+</h1>
+<h4>the high-level, caching, CouchDB library</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle">module cradle</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache">
+            function <span class="apidocSignatureSpan">cradle.</span>Cache
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection">
+            function <span class="apidocSignatureSpan">cradle.</span>Connection
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.CouchError">
+            function <span class="apidocSignatureSpan">cradle.</span>CouchError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.CouchError.super_">
+            function <span class="apidocSignatureSpan">cradle.</span>CouchError.super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database">
+            function <span class="apidocSignatureSpan">cradle.</span>Database
+            <span class="apidocSignatureSpan">(name, connection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Response">
+            function <span class="apidocSignatureSpan">cradle.</span>Response
+            <span class="apidocSignatureSpan">(json, response)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.escape">
+            function <span class="apidocSignatureSpan">cradle.</span>escape
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.extend">
+            function <span class="apidocSignatureSpan">cradle.</span>extend
+            <span class="apidocSignatureSpan">(obj, properties)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.merge">
+            function <span class="apidocSignatureSpan">cradle.</span>merge
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.setup">
+            function <span class="apidocSignatureSpan">cradle.</span>setup
+            <span class="apidocSignatureSpan">(settings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">cradle.</span>port</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cradle.</span>Cache.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cradle.</span>Connection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cradle.</span>Database.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cradle.</span>auth</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cradle.</span>ca</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">cradle.</span>options</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">cradle.</span>host</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.Cache">module cradle.Cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.Cache">
+            function <span class="apidocSignatureSpan">cradle.</span>Cache
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.Cache.prototype">module cradle.Cache.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype._get">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_get
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype._has">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_has
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype._purge">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_purge
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype._save">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_save
+            <span class="apidocSignatureSpan">(id, doc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype.get">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>get
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype.has">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>has
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype.prune">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>prune
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype.purge">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>purge
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype.query">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>query
+            <span class="apidocSignatureSpan">(op, id, doc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Cache.prototype.save">
+            function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>save
+            <span class="apidocSignatureSpan">(id, doc)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.Connection">module cradle.Connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.Connection">
+            function <span class="apidocSignatureSpan">cradle.</span>Connection
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.Connection.prototype">module cradle.Connection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype._url">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>_url
+            <span class="apidocSignatureSpan">(path)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.activeTasks">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>activeTasks
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.close">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>close
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.config">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>config
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.database">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>database
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.databases">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>databases
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.info">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>info
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.rawRequest">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>rawRequest
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.replicate">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>replicate
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.request">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>request
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.stats">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>stats
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Connection.prototype.uuids">
+            function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>uuids
+            <span class="apidocSignatureSpan">(count, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.CouchError">module cradle.CouchError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.CouchError.CouchError">
+            function <span class="apidocSignatureSpan">cradle.</span>CouchError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.CouchError.super_">
+            function <span class="apidocSignatureSpan">cradle.CouchError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.CouchError.super_">module cradle.CouchError.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.CouchError.super_.super_">
+            function <span class="apidocSignatureSpan">cradle.CouchError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.CouchError.super_.captureStackTrace">
+            function <span class="apidocSignatureSpan">cradle.CouchError.super_.</span>captureStackTrace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">cradle.CouchError.super_.</span>stackTraceLimit</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.Database">module cradle.Database</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.Database">
+            function <span class="apidocSignatureSpan">cradle.</span>Database
+            <span class="apidocSignatureSpan">(name, connection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.cradle.Database.prototype">module cradle.Database.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype._getOrPostView">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>_getOrPostView
+            <span class="apidocSignatureSpan">(path, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype._merge">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>_merge
+            <span class="apidocSignatureSpan">(id, doc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype._save">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>_save
+            <span class="apidocSignatureSpan">(id, rev, doc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.addAttachment">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>addAttachment
+            <span class="apidocSignatureSpan">(doc, attachment, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.all">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>all
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.changes">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>changes
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.compact">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>compact
+            <span class="apidocSignatureSpan">(design)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.create">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>create
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.destroy">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.exists">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>exists
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.fti">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>fti
+            <span class="apidocSignatureSpan">(path, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.get">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>get
+            <span class="apidocSignatureSpan">(id, rev)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.getAttachment">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>getAttachment
+            <span class="apidocSignatureSpan">(id, attachmentName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.head">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>head
+            <span class="apidocSignatureSpan">(id, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.info">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>info
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.insert">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>insert
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.list">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>list
+            <span class="apidocSignatureSpan">(path, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.merge">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>merge
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.post">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>post
+            <span class="apidocSignatureSpan">(doc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.put">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>put
+            <span class="apidocSignatureSpan">(id, doc, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.query">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>query
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.remove">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>remove
+            <span class="apidocSignatureSpan">(id, rev)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.removeAttachment">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>removeAttachment
+            <span class="apidocSignatureSpan">(doc, attachmentName, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.replicate">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>replicate
+            <span class="apidocSignatureSpan">(target, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.save">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>save
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.saveAttachment">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>saveAttachment
+            <span class="apidocSignatureSpan">(doc, attachment, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.temporaryView">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>temporaryView
+            <span class="apidocSignatureSpan">(doc, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.update">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>update
+            <span class="apidocSignatureSpan">(path, id, options, body)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.view">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>view
+            <span class="apidocSignatureSpan">(path, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.cradle.Database.prototype.viewCleanup">
+            function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>viewCleanup
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle" id="apidoc.module.cradle">module cradle</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache" id="apidoc.element.cradle.Cache">
+        function <span class="apidocSignatureSpan">cradle.</span>Cache
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Cache = function (options) {
+    var that = this;
+
+    this.store   = {};
+    this.options = options;
+    this.size = options.cacheSize || 0;
+    this.keys = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection" id="apidoc.element.cradle.Connection">
+        function <span class="apidocSignatureSpan">cradle.</span>Connection
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection() {
+    var args = Array.prototype.slice.call(arguments),
+        options = {},
+        remote,
+        match,
+        host,
+        port,
+        ca,
+        agentOptions = {},
+        auth;
+
+    args.forEach(function (a) {
+        if (typeof(a) === &#x27;number&#x27; || (typeof(a) === &#x27;string&#x27; &#x26;&#x26; /^\d{2,5}$/.test(a))) {
+            port = parseInt(a);
+        } else if (typeof(a) === &#x27;object&#x27;) {
+            options = a;
+            host = host || options.hostname || options.host;
+            port = port || options.port;
+            auth = options.auth;
+            ca = options.ca;
+        } else {
+            host = a;
+
+            if (match = host.match(/^(.+)\:(\d{2,5})$/)) {
+                host = match[1];
+                port = parseInt(match[2]);
+            }
+        }
+    });
+
+    if (typeof auth == &#x22;string&#x22;) {
+        // probaby via a url.parse()
+        var userpass = auth.split(&#x22;:&#x22;);
+        auth = {};
+        auth.username = userpass[0];
+        auth.password = userpass[1] || null;
+    }
+
+    this.host    = host || cradle.host;
+    this.port    = port || cradle.port;
+    this.auth    = auth || cradle.auth;
+    this.ca      = ca   || cradle.ca;
+    this.options = cradle.merge({}, cradle.options, options);
+
+    this.options.maxSockets = this.options.maxSockets || 20;
+    this.options.secure     = this.options.secure     || this.options.ssl;
+
+    if (protocolPattern.test(this.host)) {
+        this.protocol = this.host.match(protocolPattern)[1];
+        this.host     = this.host.replace(protocolPattern, &#x27;&#x27;);
+    }
+
+    if (this.protocol === &#x27;https&#x27;) this.options.secure = true;
+
+    if (!this.protocol) {
+        this.protocol = (this.options.secure) ? &#x27;https&#x27; : &#x27;http&#x27;;
+    }
+
+    if (this.options.ssl) { // Deprecation warning
+        console.log(&#x27;Warning: &#x22;ssl&#x22; option is deprecated. Use &#x22;secure&#x22; instead.&#x27;);
+    }
+
+    agentOptions.host = this.host;
+    agentOptions.port = this.port;
+    if (this.options.secure) {
+        this.transport = https;
+        if (this.ca) {
+            agentOptions.ca = this.ca;
+        }
+    } else {
+        this.transport = http;
+    }
+    this.agent = new (this.transport.Agent)(agentOptions);
+
+    this.agent.maxSockets = this.options.maxSockets;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.CouchError" id="apidoc.element.cradle.CouchError">
+        function <span class="apidocSignatureSpan">cradle.</span>CouchError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CouchError(err) {
+	// ensure proper stack trace
+	Error.call(this);
+	Error.captureStackTrace(this, this.constructor);
+
+	this.name = this.constructor.name;
+	this.message = err.error + &#x27;: &#x27; + err.reason;
+
+	// add properties from CouchDB error response to Error object
+	for (var k in err) {
+		if (err.hasOwnProperty(k)) {
+			this[k] = err[k];
+		}
+	}
+    this.headers = err.headers;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.CouchError.super_" id="apidoc.element.cradle.CouchError.super_">
+        function <span class="apidocSignatureSpan">cradle.</span>CouchError.super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database" id="apidoc.element.cradle.Database">
+        function <span class="apidocSignatureSpan">cradle.</span>Database
+        <span class="apidocSignatureSpan">(name, connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Database = function (name, connection) {
+    this.connection = connection;
+    this.name = encodeURIComponent(name);
+    this.cache = new (cradle.Cache)(connection.options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Response" id="apidoc.element.cradle.Response">
+        function <span class="apidocSignatureSpan">cradle.</span>Response
+        <span class="apidocSignatureSpan">(json, response)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Response(json, response) {
+    var obj, headers;
+
+    // If there&#x27;s an _id key, it&#x27;s the result
+    // of a document retrieval.
+    // Avoid potential key collisions.
+    if (!json._id) {
+        // If there&#x27;s rows, this is the result
+        // of a view function.
+        // We want to return this as an Array.
+        if (json.rows) {
+            obj           = json.rows.slice(0);
+            obj.__proto__ = new(Array);
+            if (json &#x26;&#x26; typeof json === &#x27;object&#x27;) {
+                Object.keys(json).forEach(function (k) {
+                    Object.defineProperty(obj.__proto__, k, {
+                        value:      json[k],
+                        enumerable: false
+                    });
+                });
+            }
+        } else if (json.results) {
+            obj = json.results.slice(0);
+            obj.__proto__ = new(Array);
+            obj.last_seq  = json.last_seq;
+        } else if (json.uuids) {
+            obj           = json.uuids;
+            obj.__proto__ = new(Array);
+        } else if (Array.isArray(json)) {
+            obj           = json.slice(0);
+            obj.__proto__ = new(Array);
+        }
+    }
+
+    if (!obj) {
+        obj           = {};
+        obj.__proto__ = new(Object);
+        if (json &#x26;&#x26; typeof json === &#x27;object&#x27;) {
+            Object.keys(json).forEach(function (k) {
+                obj[k] = json[k];
+            });
+        }
+    }
+
+    // If the response was originally a document,
+    // give access to it via the &#x27;json&#x27; getter.
+    if (!Array.isArray(json) &#x26;&#x26; !obj.json) {
+        Object.defineProperty(obj, &#x27;json&#x27;, {
+            value: json,
+            enumerable: false
+        });
+    }
+
+    if (response) {
+        headers = { status: response.statusCode };
+        Object.keys(response.headers).forEach(function (k) {
+            headers[k] = response.headers[k];
+        });
+
+        // Set the &#x27;headers&#x27; special field, with the response&#x27;s status code.
+        exports.extend(obj, &#x27;headers&#x27; in obj ? { _headers: headers }
+                                             : {  headers: headers });
+    }
+
+    // Alias &#x27;_rev&#x27; and &#x27;_id&#x27;
+    if (obj.id &#x26;&#x26; obj.rev) {
+        exports.extend(obj, { _id:  obj.id, _rev: obj.rev });
+    } else if (obj._id &#x26;&#x26; obj._rev) {
+        exports.extend(obj, { id:  obj._id, rev: obj._rev });
+    }
+
+    if (Array.isArray(obj) &#x26;&#x26; json.rows) {
+        exports.extend(obj, exports.collectionPrototype);
+    }
+    exports.extend(obj, exports.basePrototype);
+
+    // Set the constructor to be this function
+    Object.defineProperty(obj, &#x27;constructor&#x27;, {
+        value: arguments.callee
+    });
+
+    return obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.escape" id="apidoc.element.cradle.escape">
+        function <span class="apidocSignatureSpan">cradle.</span>escape
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (id) {
+    return [&#x27;_design&#x27;, &#x27;_changes&#x27;, &#x27;_temp_view&#x27;].indexOf(id.split(&#x27;/&#x27;)[0]) === -1
+        ? querystring.escape(id)
+        : id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.extend" id="apidoc.element.cradle.extend">
+        function <span class="apidocSignatureSpan">cradle.</span>extend
+        <span class="apidocSignatureSpan">(obj, properties)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (obj, properties) {
+    var descriptor = Object.keys(properties).reduce(function (hash, k) {
+        hash[k] = {
+            value: properties[k],
+            enumerable: false
+        };
+        return hash;
+    }, {});
+    return Object.defineProperties(obj, descriptor);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.merge" id="apidoc.element.cradle.merge">
+        function <span class="apidocSignatureSpan">cradle.</span>merge
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function (target) {
+    var objs = Array.prototype.slice.call(arguments, 1);
+    objs.forEach(function (o) {
+        Object.keys(o).forEach(function (attr) {
+            if (! o.__lookupGetter__(attr)) {
+                target[attr] = o[attr];
+            }
+        });
+    });
+    return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Note that when saving a document this way, CouchDB overwrites the existing document with the new one. If you want to update only
+ certain fields of the document, you have to fetch it first (with `get`), make your changes, then resave the modified document with
+ the above method.
+
+If you only want to update one or more attributes, and leave the others untouched, you can use the `merge()` method:
+
+``` js
+  db.<span class="apidocCodeKeywordSpan">merge</span>(&#x27;luke&#x27;, {jedi: true}, function (err, res) {
+      // Luke is now a jedi,
+      // but remains on the dark side of the force.
+  });
+```
+
+Note that we didn&#x27;t pass a `_rev`, this only works because we previously saved a full version of &#x27;luke&#x27;, and the `
+cache` option is enabled.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.setup" id="apidoc.element.cradle.setup">
+        function <span class="apidocSignatureSpan">cradle.</span>setup
+        <span class="apidocSignatureSpan">(settings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setup = function (settings) {
+    this.host = settings.host;
+    this.auth = settings.auth;
+    if (settings.port) {
+        this.port = parseInt(settings.port, 10);
+    }
+    cradle.merge(this.options, settings);
+
+    return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+_Defaults to `127.0.0.1:5984`_
+
+Note that you can also use `cradle.setup` to set a global configuration:
+
+``` js
+cradle.<span class="apidocCodeKeywordSpan">setup</span>({
+  host: &#x27;living-room.couch&#x27;,
+  cache: true,
+  raw: false,
+  forceSave: true
+});
+
+var c = new(cradle.Connection),
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.Cache" id="apidoc.module.cradle.Cache">module cradle.Cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.Cache" id="apidoc.element.cradle.Cache.Cache">
+        function <span class="apidocSignatureSpan">cradle.</span>Cache
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Cache = function (options) {
+    var that = this;
+
+    this.store   = {};
+    this.options = options;
+    this.size = options.cacheSize || 0;
+    this.keys = 0;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.Cache.prototype" id="apidoc.module.cradle.Cache.prototype">module cradle.Cache.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype._get" id="apidoc.element.cradle.Cache.prototype._get">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_get
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_get = function (id) {
+    var entry;
+
+    if (id in this.store) {
+        entry = this.store[id];
+        entry.atime = Date.now();
+
+        if (this.options.raw) {
+            return entry.document;
+        } else {
+            // If the document is already wrapped in a `Response`,
+            // just return it. Else, wrap it first. We clone the documents
+            // before returning them, to protect them from modification.
+            if (entry.document.toJSON) {
+                return clone(entry.document);
+            } else {
+                return new(Response)(clone(entry.document));
+            }
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype._has" id="apidoc.element.cradle.Cache.prototype._has">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_has
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_has = function (id) {
+    return id in this.store;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype._purge" id="apidoc.element.cradle.Cache.prototype._purge">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_purge
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_purge = function (id) {
+    if (id) {
+        delete(this.store[id]);
+        this.keys --;
+    } else {
+        this.store = {};
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype._save" id="apidoc.element.cradle.Cache.prototype._save">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>_save
+        <span class="apidocSignatureSpan">(id, doc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_save = function (id, doc) {
+    if (! this._has(id)) {
+        this.keys ++;
+        this.prune();
+    }
+
+    this.store[id] = {
+        atime:    Date.now(),
+        document: doc
+    };
+
+    return this.store[id];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype.get" id="apidoc.element.cradle.Cache.prototype.get">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>get
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (id)      { return this.query(&#x27;get&#x27;,   id); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+synopsis
+--------
+
+``` js
+var cradle = require(&#x27;cradle&#x27;);
+var db = new(cradle.Connection)().database(&#x27;starwars&#x27;);
+
+db.<span class="apidocCodeKeywordSpan">get</span>(&#x27;vader&#x27;, function (err, doc) {
+    doc.name; // &#x27;Darth Vader&#x27;
+    assert.equal(doc.force, &#x27;dark&#x27;);
+});
+
+db.save(&#x27;skywalker&#x27;, {
+    force: &#x27;light&#x27;,
+    name: &#x27;Luke Skywalker&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype.has" id="apidoc.element.cradle.Cache.prototype.has">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>has
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">has = function (id)      { return this.query(&#x27;has&#x27;,   id); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### cache API ###
+
+When cache is enabled (default is true), a document is loaded into cradle&#x27;s cache when it&#x27;s retrieved or saved. In the
+ event you wish to keep caching enabled, but invalidate specific items - such as those which may have been updated elsewhere. You
+ can use the API below.
+
+**HAS**
+```js
+db.cache.<span class="apidocCodeKeywordSpan">has</span>(&#x27;docid&#x27;);  //returns true if exists, false if not
+```
+
+**GET**
+```js
+db.cache.get(&#x27;docid&#x27;);  //returns the document from the cache
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype.prune" id="apidoc.element.cradle.Cache.prototype.prune">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>prune
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prune = function () {
+    var that = this;
+    if (this.size &#x26;&#x26; this.keys &#x3e; this.size) {
+        process.nextTick(function () {
+            var store  = that.store,
+                keys   = Object.keys(store),
+                pruned = Math.ceil(that.size / 8);
+
+            keys.sort(function (a, b) {
+                return store[a].atime &#x3e; store[b].atime ? 1 : -1;
+            });
+
+            for (var i = 0; i &#x3c; pruned; i++) {
+                delete(store[keys[i]]);
+            }
+            that.keys -= pruned;
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype.purge" id="apidoc.element.cradle.Cache.prototype.purge">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>purge
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">purge = function (id)      { return this.query(&#x27;purge&#x27;, id); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+**GET**
+```js
+db.cache.get(&#x27;docid&#x27;);  //returns the document from the cache
+```
+
+**PURGE**
+```js
+db.cache.<span class="apidocCodeKeywordSpan">purge</span>(&#x27;docid&#x27;);  //remove this item from the cache
+```
+
+**SAVE**
+```js
+db.cache.save(&#x27;docid&#x27;, doc);  //saves the provided document into the cache
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype.query" id="apidoc.element.cradle.Cache.prototype.query">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>query
+        <span class="apidocSignatureSpan">(op, id, doc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (op, id, doc) {
+    if (this.options.cache) {
+        return this[&#x27;_&#x27; + op](id, doc);
+    } else {
+        return false;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Cache.prototype.save" id="apidoc.element.cradle.Cache.prototype.save">
+        function <span class="apidocSignatureSpan">cradle.Cache.prototype.</span>save
+        <span class="apidocSignatureSpan">(id, doc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function (id, doc) { return this.query(&#x27;save&#x27;,  id, doc); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var db = new(cradle.Connection)().database(&#x27;starwars&#x27;);
+
+db.get(&#x27;vader&#x27;, function (err, doc) {
+    doc.name; // &#x27;Darth Vader&#x27;
+    assert.equal(doc.force, &#x27;dark&#x27;);
+});
+
+db.<span class="apidocCodeKeywordSpan">save</span>(&#x27;skywalker&#x27;, {
+    force: &#x27;light&#x27;,
+    name: &#x27;Luke Skywalker&#x27;
+}, function (err, res) {
+    if (err) {
+        // Handle error
+    } else {
+        // Handle success
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.Connection" id="apidoc.module.cradle.Connection">module cradle.Connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.Connection" id="apidoc.element.cradle.Connection.Connection">
+        function <span class="apidocSignatureSpan">cradle.</span>Connection
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection() {
+    var args = Array.prototype.slice.call(arguments),
+        options = {},
+        remote,
+        match,
+        host,
+        port,
+        ca,
+        agentOptions = {},
+        auth;
+
+    args.forEach(function (a) {
+        if (typeof(a) === &#x27;number&#x27; || (typeof(a) === &#x27;string&#x27; &#x26;&#x26; /^\d{2,5}$/.test(a))) {
+            port = parseInt(a);
+        } else if (typeof(a) === &#x27;object&#x27;) {
+            options = a;
+            host = host || options.hostname || options.host;
+            port = port || options.port;
+            auth = options.auth;
+            ca = options.ca;
+        } else {
+            host = a;
+
+            if (match = host.match(/^(.+)\:(\d{2,5})$/)) {
+                host = match[1];
+                port = parseInt(match[2]);
+            }
+        }
+    });
+
+    if (typeof auth == &#x22;string&#x22;) {
+        // probaby via a url.parse()
+        var userpass = auth.split(&#x22;:&#x22;);
+        auth = {};
+        auth.username = userpass[0];
+        auth.password = userpass[1] || null;
+    }
+
+    this.host    = host || cradle.host;
+    this.port    = port || cradle.port;
+    this.auth    = auth || cradle.auth;
+    this.ca      = ca   || cradle.ca;
+    this.options = cradle.merge({}, cradle.options, options);
+
+    this.options.maxSockets = this.options.maxSockets || 20;
+    this.options.secure     = this.options.secure     || this.options.ssl;
+
+    if (protocolPattern.test(this.host)) {
+        this.protocol = this.host.match(protocolPattern)[1];
+        this.host     = this.host.replace(protocolPattern, &#x27;&#x27;);
+    }
+
+    if (this.protocol === &#x27;https&#x27;) this.options.secure = true;
+
+    if (!this.protocol) {
+        this.protocol = (this.options.secure) ? &#x27;https&#x27; : &#x27;http&#x27;;
+    }
+
+    if (this.options.ssl) { // Deprecation warning
+        console.log(&#x27;Warning: &#x22;ssl&#x22; option is deprecated. Use &#x22;secure&#x22; instead.&#x27;);
+    }
+
+    agentOptions.host = this.host;
+    agentOptions.port = this.port;
+    if (this.options.secure) {
+        this.transport = https;
+        if (this.ca) {
+            agentOptions.ca = this.ca;
+        }
+    } else {
+        this.transport = http;
+    }
+    this.agent = new (this.transport.Agent)(agentOptions);
+
+    this.agent.maxSockets = this.options.maxSockets;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.Connection.prototype" id="apidoc.module.cradle.Connection.prototype">module cradle.Connection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype._url" id="apidoc.element.cradle.Connection.prototype._url">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>_url
+        <span class="apidocSignatureSpan">(path)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_url = function (path) {
+    var url = (this.protocol || &#x27;http&#x27;) + &#x27;://&#x27; + this.host;
+    if (this.port !== 443 &#x26;&#x26; this.port !== 80) {
+        url += &#x27;:&#x27; + this.port;
+    }
+
+    url += path[0] === &#x27;/&#x27; ? path : (&#x27;/&#x27; + path);
+    return url;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.activeTasks" id="apidoc.element.cradle.Connection.prototype.activeTasks">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>activeTasks
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">activeTasks = function (callback) {
+    this.request({ path: &#x27;/_active_tasks&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.close" id="apidoc.element.cradle.Connection.prototype.close">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>close
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function () {
+  this.agent.sockets.forEach(function (socket) {
+      socket.end();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.config" id="apidoc.element.cradle.Connection.prototype.config">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>config
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">config = function (callback) {
+    this.request({ path: &#x27;/_config&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.database" id="apidoc.element.cradle.Connection.prototype.database">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>database
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">database = function (name) {
+    return new cradle.Database(name, this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Cradle&#x27;s API, although closely knit with CouchDB&#x27;s, isn&#x27;t overly so. Whenever the API can be abstracted in a friendlier
+, simpler way, that&#x27;s the route it takes. So even though a large part of the `Cradle &#x3c;--&#x3e; CouchDB` mappings are one
+ to one, some Cradle functions, such as `save()`, can perform more than one operation, depending on how they are used.
+
+synopsis
+--------
+
+``` js
+var cradle = require(&#x27;cradle&#x27;);
+var db = new(cradle.Connection)().<span class="apidocCodeKeywordSpan">database</span>(&#x27;starwars&#x27;);
+
+db.get(&#x27;vader&#x27;, function (err, doc) {
+    doc.name; // &#x27;Darth Vader&#x27;
+    assert.equal(doc.force, &#x27;dark&#x27;);
+});
+
+db.save(&#x27;skywalker&#x27;, {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.databases" id="apidoc.element.cradle.Connection.prototype.databases">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>databases
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">databases = function (callback) {
+    this.request({ path: &#x27;/_all_dbs&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.info" id="apidoc.element.cradle.Connection.prototype.info">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>info
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (callback) {
+    this.request({ path: &#x27;/&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.rawRequest" id="apidoc.element.cradle.Connection.prototype.rawRequest">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>rawRequest
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rawRequest = function (options, callback) {
+    var promise = new(events.EventEmitter),
+        self = this;
+
+    // HTTP Headers
+    options.headers = options.headers || {};
+
+    // Set HTTP Basic Auth
+    if (this.auth) {
+        options.auth = this.auth;
+    }
+
+    // Set client-wide headers
+    Object.keys(this.options.headers).forEach(function (header) {
+        options.headers[header] = self.options.headers[header];
+    });
+
+    if (options.query &#x26;&#x26; Object.keys(options.query).length) {
+        for (var k in options.query) {
+            if (typeof(options.query[k]) === &#x27;boolean&#x27;) {
+                options.query[k] = String(options.query[k]);
+            }
+        }
+        options.path += &#x27;?&#x27; + querystring.stringify(options.query);
+    }
+
+    options.headers[&#x27;Connection&#x27;] = options.headers[&#x27;Connection&#x27;] || &#x27;keep-alive&#x27;;
+    options.agent = this.agent;
+    options.uri = this._url(options.path);
+    delete options.path;
+    options = cradle.merge(this.options.request || {}, options);
+
+    return request(options, callback || function () { });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.replicate" id="apidoc.element.cradle.Connection.prototype.replicate">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>replicate
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">replicate = function (options, callback) {
+    this.request({
+        method: &#x27;POST&#x27;,
+        path: &#x27;/_replicate&#x27;,
+        body: options
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.request" id="apidoc.element.cradle.Connection.prototype.request">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>request
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">request = function (options, callback) {
+    var headers = cradle.merge({ host: this.host }, options.headers || {}),
+        self = this;
+
+    callback = callback || function () {};
+
+    // HTTP Headers
+    options.headers = options.headers || {};
+
+    //
+    // Handle POST/PUT data. We also convert functions to strings,
+    // so they can be used in _design documents.
+    //
+    if (options.body) {
+        options.body = JSON.stringify(options.body, function (k, val) {
+            if (typeof(val) === &#x27;function&#x27;) {
+                return val.toString();
+            } else { return val }
+        });
+        options.headers[&#x22;Content-Length&#x22;] = Buffer.byteLength(options.body);
+        options.headers[&#x22;Content-Type&#x22;]   = &#x22;application/json&#x22;;
+    }
+
+    if (options.method === &#x22;DELETE&#x22; &#x26;&#x26; !options.headers[&#x22;Content-Length&#x22;]) {
+        options.headers[&#x22;Content-Length&#x22;] = 0;
+    }
+
+    var attempts = 0;
+    return this.rawRequest(options, function _onResponse(err, res, body) {
+        attempts++;
+        if (err) {
+            if (self.options.retries &#x26;&#x26;
+              (!options.method || options.method.toLowerCase() === &#x27;get&#x27; || options.body) &#x26;&#x26;
+              String(err.code).indexOf(&#x27;ECONN&#x27;) === 0 &#x26;&#x26; attempts &#x3c;= self.options.retries
+            ) {
+              return setTimeout(
+                  self.rawRequest.bind(self, options, _onResponse),
+                  self.options.retryTimeout
+              );
+            }
+            return callback(err);
+        }
+        else if (options.method === &#x27;HEAD&#x27;) {
+            return callback(null, res.headers, res.statusCode);
+        }
+        else if (body &#x26;&#x26; body.error) {
+            cradle.extend(body, { headers: res.headers });
+            body.headers.status = res.statusCode;
+            return callback(new cradle.CouchError(body));
+        }
+
+        try { body = JSON.parse(body) }
+        catch (err) { }
+
+        if (body &#x26;&#x26; body.error) {
+            cradle.extend(body, { headers: res.headers });
+            body.headers.status = res.statusCode;
+            return callback(new cradle.CouchError(body));
+        }
+
+        callback(null, self.options.raw ? body : new cradle.Response(body, res));
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.stats" id="apidoc.element.cradle.Connection.prototype.stats">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>stats
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stats = function (callback) {
+    this.request({ path: &#x27;/_stats&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Connection.prototype.uuids" id="apidoc.element.cradle.Connection.prototype.uuids">
+        function <span class="apidocSignatureSpan">cradle.Connection.prototype.</span>uuids
+        <span class="apidocSignatureSpan">(count, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uuids = function (count, callback) {
+    if (typeof(count) === &#x27;function&#x27;) {
+        callback = count;
+        count = null;
+    }
+
+    this.request({
+        method: &#x27;GET&#x27;,
+        path: &#x27;/_uuids&#x27;,
+        query: count ? { count: count } : {}
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.CouchError" id="apidoc.module.cradle.CouchError">module cradle.CouchError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.CouchError.CouchError" id="apidoc.element.cradle.CouchError.CouchError">
+        function <span class="apidocSignatureSpan">cradle.</span>CouchError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CouchError(err) {
+	// ensure proper stack trace
+	Error.call(this);
+	Error.captureStackTrace(this, this.constructor);
+
+	this.name = this.constructor.name;
+	this.message = err.error + &#x27;: &#x27; + err.reason;
+
+	// add properties from CouchDB error response to Error object
+	for (var k in err) {
+		if (err.hasOwnProperty(k)) {
+			this[k] = err[k];
+		}
+	}
+    this.headers = err.headers;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.CouchError.super_" id="apidoc.element.cradle.CouchError.super_">
+        function <span class="apidocSignatureSpan">cradle.CouchError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.CouchError.super_" id="apidoc.module.cradle.CouchError.super_">module cradle.CouchError.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.CouchError.super_.super_" id="apidoc.element.cradle.CouchError.super_.super_">
+        function <span class="apidocSignatureSpan">cradle.CouchError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.CouchError.super_.captureStackTrace" id="apidoc.element.cradle.CouchError.super_.captureStackTrace">
+        function <span class="apidocSignatureSpan">cradle.CouchError.super_.</span>captureStackTrace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureStackTrace() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.Database" id="apidoc.module.cradle.Database">module cradle.Database</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.Database" id="apidoc.element.cradle.Database.Database">
+        function <span class="apidocSignatureSpan">cradle.</span>Database
+        <span class="apidocSignatureSpan">(name, connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Database = function (name, connection) {
+    this.connection = connection;
+    this.name = encodeURIComponent(name);
+    this.cache = new (cradle.Cache)(connection.options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.cradle.Database.prototype" id="apidoc.module.cradle.Database.prototype">module cradle.Database.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype._getOrPostView" id="apidoc.element.cradle.Database.prototype._getOrPostView">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>_getOrPostView
+        <span class="apidocSignatureSpan">(path, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getOrPostView = function (path, options, callback) {
+    options = parseOptions(options);
+
+    if (options &#x26;&#x26; options.body) {
+        var body = options.body;
+        delete options.body;
+
+        return this.query({
+            method: &#x27;POST&#x27;,
+            path: path,
+            query: options,
+            body: body
+        }, callback);
+    }
+
+    return this.query({
+        method: &#x27;GET&#x27;,
+        path: path,
+        query: options
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype._merge" id="apidoc.element.cradle.Database.prototype._merge">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>_merge
+        <span class="apidocSignatureSpan">(id, doc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_merge = function (id, doc, callback) {
+    var that = this;
+    this.get(id, function (e, res) {
+        if (e) {
+            return callback(e);
+        }
+        doc = cradle.merge({}, res.json || res, doc);
+        that.save(id, res._rev, doc, callback);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype._save" id="apidoc.element.cradle.Database.prototype._save">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>_save
+        <span class="apidocSignatureSpan">(id, rev, doc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_save = function (id, rev, doc, callback) {
+    var options = this.connection.options;
+    var document = {}, that = this;
+
+    // Bulk Insert
+    if (Array.isArray(doc)) {
+        document.docs = doc;
+        if (options.allOrNothing) {
+            document.all_or_nothing = true;
+        }
+        this.query({
+            method: &#x27;POST&#x27;,
+            path: &#x27;/_bulk_docs&#x27;,
+            body: document
+        }, callback);
+    } else {
+        if (!id &#x26;&#x26; doc._id) {
+            id = doc._id;
+        }
+
+        // PUT a single document, with an id (Create or Update)
+        if (id) {
+            // Design document
+            if (/^_design\/(\w|%|\-)+$/.test(id) &#x26;&#x26; !(&#x27;views&#x27; in doc)) {
+                document.language = &#x22;javascript&#x22;;
+                document.views    =  doc;
+            } else {
+                document = doc;
+            }
+            // Try to set the &#x27;_rev&#x27; attribute of the document.
+            // If it wasn&#x27;t passed, attempt to retrieve it from the cache.
+            rev &#x26;&#x26; (document._rev = rev);
+
+            if (document._rev) {
+                this.put(id, document, callback);
+            } else if (this.cache.has(id)) {
+                document._rev = this.cache.get(id)._rev;
+                this.put(id, document, callback);
+            } else {
+                // Attempt to create a new document. If it fails,
+                // because an existing document with that _id exists (409),
+                // perform a HEAD, to get the _rev, and try to re-save.
+                this.put(id, document, function (e, res) {
+                    if (e &#x26;&#x26; e.headers &#x26;&#x26; e.headers.status === 409 &#x26;&#x26; options.forceSave) { // Conflict
+                        that.head(id, function (e, headers, res) {
+                            if (res === 404 || !headers.etag) {
+                                return callback({ reason: &#x27;not_found&#x27; });
+                            }
+
+                            document._rev = headers.etag.slice(1, -1);
+                            that.put(id, document, callback);
+                        });
+                    } else {
+                        callback(e, res);
+                    }
+                });
+            }
+        // POST a single document, without an id (Create)
+        } else {
+            this.post(doc, callback);
+        }
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.addAttachment" id="apidoc.element.cradle.Database.prototype.addAttachment">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>addAttachment
+        <span class="apidocSignatureSpan">(doc, attachment, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addAttachment = function (doc, attachment, callback) {
+    var attachmentName,
+        options = {},
+        self = this,
+        params,
+        error,
+        rev,
+        id;
+
+    if (typeof doc === &#x27;string&#x27;) {
+        id = doc;
+    } else {
+        id  = doc.id  || doc._id;
+        rev = doc.rev || doc._rev;
+    }
+
+    if (!id) {
+        error = new(TypeError)(&#x22;Missing document id.&#x22;);
+        if (!callback) {
+            throw error;
+        }
+        return callback(error);
+    }
+
+    attachmentName = typeof attachment !== &#x27;string&#x27; ? attachment.name : attachment;
+
+    if (!rev &#x26;&#x26; this.cache.has(id)) {
+        params = { rev: this.cache.get(id)._rev };
+    } else if (rev) {
+        params = { rev: rev.replace(/\&#x22;/g, &#x27;&#x27;) };
+    }
+
+    options.method = &#x27;PUT&#x27;;
+    options.path = &#x27;/&#x27; + [this.name, querystring.escape(id), attachmentName].join(&#x27;/&#x27;);
+    options.headers = {
+        &#x27;Content-Type&#x27;: attachment[&#x27;content-type&#x27;] ||
+            attachment.contentType ||
+            attachment[&#x27;Content-Type&#x27;] ||
+            &#x27;text/plain&#x27;
+    };
+
+    if (attachment.contentLength) {
+        options.headers[&#x27;Content-Length&#x27;] = attachment.contentLength;
+    }
+
+    if (attachment.body) {
+        options.body = attachment.body;
+    }
+
+    if (params) {
+        options.path += (&#x27;?&#x27; + querystring.stringify(params));
+    }
+
+    return this.connection.rawRequest(options, function (err, res, body) {
+        if (err) {
+            return callback(err);
+        }
+
+        var result = JSON.parse(body);
+        result.headers = res.headers;
+        result.headers.status = res.statusCode;
+
+        if (result.headers.status == 201) {
+            if (self.cache.has(id)) {
+                // FIXME: Is this supposed to be this.cached?
+                cached = self.cache.store[id].document;
+                cached._rev = result.rev;
+                cached._attachments = cached._attachments || {};
+                cached._attachments[attachmentName] = { stub: true };
+            }
+
+            return callback(null, result);
+        }
+
+        callback(result);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.all" id="apidoc.element.cradle.Database.prototype.all">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>all
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">all = function (options, callback) {
+    if (arguments.length === 1) {
+      callback = options;
+      options = {};
+    }
+
+    return this._getOrPostView(&#x27;/_all_docs&#x27;, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.changes" id="apidoc.element.cradle.Database.prototype.changes">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>changes
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">changes = function (options, callback) {
+    if (typeof(options) === &#x27;function&#x27;) {
+        callback = options;
+        options = {};
+    }
+
+    options = options || {};
+
+    if (callback) {
+        return this.query({
+            method: &#x27;GET&#x27;,
+            path: &#x27;_changes&#x27;,
+            query: options
+        }, callback);
+    }
+
+    var response = new events.EventEmitter(),
+        responded = false,
+        protocol,
+        auth = &#x27;&#x27;,
+        feed;
+
+    if (!options.db) {
+        protocol = this.connection.protocol || &#x27;http&#x27;;
+
+        if (this.connection.auth &#x26;&#x26; this.connection.auth.username &#x26;&#x26; this.connection.auth.password) {
+            auth = this.connection.auth.username + &#x27;:&#x27; + this.connection.auth.password + &#x27;@&#x27;;
+        }
+
+        options.db = protocol + &#x27;://&#x27; + auth + this.connection.host + &#x27;:&#x27; + this.connection.port + &#x27;/&#x27; + this.name;
+    }
+
+    feed = new follow.Feed(options);
+    feed.on(&#x27;change&#x27;, function () {
+        //
+        // Remark: Support the legacy `data` events.
+        //
+        if (!responded) {
+            responded = true;
+            feed.emit(&#x27;response&#x27;, response);
+        }
+
+        response.emit.apply(response, [&#x27;data&#x27;].concat(Array.prototype.slice.call(arguments)));
+    });
+
+    if (options.follow !== false) {
+        feed.follow();
+    }
+
+    return feed;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Changes API
+-----------
+
+For a one-time `_changes` query, simply call `db.changes` with a callback:
+
+``` js
+  db.<span class="apidocCodeKeywordSpan">changes</span>(function (err, list) {
+      list.forEach(function (change) { console.log(change) });
+  });
+```
+
+Or if you want to see changes since a specific sequence number:
+
+``` js
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.compact" id="apidoc.element.cradle.Database.prototype.compact">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>compact
+        <span class="apidocSignatureSpan">(design)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compact = function (design) {
+    this.query({
+        method: &#x27;POST&#x27;,
+        path: &#x27;/_compact&#x27; + (typeof(design) === &#x27;string&#x27; ? &#x27;/&#x27; + querystring.escape(design) : &#x27;&#x27;),
+        headers: {
+            &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
+        }
+    }, Args.last(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.create" id="apidoc.element.cradle.Database.prototype.create">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>create
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (callback) {
+    this.query({ method: &#x27;PUT&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+     cc = new(cradle.Connection)(&#x27;173.45.66.92&#x27;);
+```
+
+### creating a database ###
+
+``` js
+  var db = c.database(&#x27;starwars&#x27;);
+  db.<span class="apidocCodeKeywordSpan">create</span>(function(err){
+    /* do something if there&#x27;s an error */
+  });
+```
+
+#### checking for database existence ####
+
+You can check if a database exists with the `exists()` method.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.destroy" id="apidoc.element.cradle.Database.prototype.destroy">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (callback) {
+    if (arguments.length &#x3e; 1) {
+        throw new(Error)(&#x22;destroy() doesn&#x27;t take any additional arguments&#x22;);
+    }
+
+    this.query({
+        method: &#x27;DELETE&#x27;,
+        path: &#x27;/&#x27;,
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+});
+```
+
+### destroy a database ###
+
+``` js
+db.<span class="apidocCodeKeywordSpan">destroy</span>(cb);
+```
+
+### fetching a document _(GET)_ ###
+
+``` js
+db.get(&#x27;vader&#x27;, function (err, doc) {
+    console.log(doc);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.exists" id="apidoc.element.cradle.Database.prototype.exists">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>exists
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">exists = function (callback) {
+    this.query({ method: &#x27;HEAD&#x27; }, function (err, res, status) {
+        if (err) {
+            callback(err);
+        } else {
+            if (status &#x3c; 200 || status &#x3e; 300) {
+                callback(null, false);
+            } else {
+                callback(null, true);
+            }
+        }
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+#### checking for database existence ####
+
+You can check if a database exists with the `exists()` method.
+
+``` js
+db.<span class="apidocCodeKeywordSpan">exists</span>(function (err, exists) {
+  if (err) {
+    console.log(&#x27;error&#x27;, err);
+  } else if (exists) {
+    console.log(&#x27;the force is with you.&#x27;);
+  } else {
+    console.log(&#x27;database does not exists.&#x27;);
+    db.create();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.fti" id="apidoc.element.cradle.Database.prototype.fti">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>fti
+        <span class="apidocSignatureSpan">(path, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fti = function (path, options, callback) {
+    if (typeof options === &#x27;function&#x27;) {
+        callback = options;
+        options = {};
+    }
+
+    path = path.split(&#x27;/&#x27;);
+    path = [&#x27;_fti&#x27;, &#x27;local&#x27;, this.name, &#x27;_design&#x27;, path[0], path[1]].map(querystring.escape).join(&#x27;/&#x27;);
+
+    options = parseOptions(options);
+
+    this.connection.request({method: &#x27;GET&#x27;, path: path, query: options}, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.get" id="apidoc.element.cradle.Database.prototype.get">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>get
+        <span class="apidocSignatureSpan">(id, rev)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (id, rev) {
+    var args = new (Args)(arguments),
+        options = null,
+        that = this;
+
+    if (Array.isArray(id)) { // Bulk GET
+        this.query({
+            method: &#x27;POST&#x27;,
+            path: &#x27;/_all_docs&#x27;,
+            query: { include_docs: true },
+            body: { keys: id },
+        }, function (err, res) {
+            args.callback(err, res);
+        });
+    } else {
+        if (rev &#x26;&#x26; args.length === 2) {
+            if (typeof(rev) === &#x27;string&#x27;) {
+                options = {
+                    rev: rev
+                };
+            } else if (typeof(rev) === &#x27;object&#x27;) {
+                options = rev;
+            }
+        } else if (this.cache.has(id)) {
+            return args.callback(null, this.cache.get(id));
+        }
+        this.query({
+            path: cradle.escape(id),
+            query: options
+        }, function (err, res) {
+            if (! err) that.cache.save(res.id, res.json);
+            args.callback(err, res);
+        });
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+synopsis
+--------
+
+``` js
+var cradle = require(&#x27;cradle&#x27;);
+var db = new(cradle.Connection)().database(&#x27;starwars&#x27;);
+
+db.<span class="apidocCodeKeywordSpan">get</span>(&#x27;vader&#x27;, function (err, doc) {
+    doc.name; // &#x27;Darth Vader&#x27;
+    assert.equal(doc.force, &#x27;dark&#x27;);
+});
+
+db.save(&#x27;skywalker&#x27;, {
+    force: &#x27;light&#x27;,
+    name: &#x27;Luke Skywalker&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.getAttachment" id="apidoc.element.cradle.Database.prototype.getAttachment">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>getAttachment
+        <span class="apidocSignatureSpan">(id, attachmentName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getAttachment = function (id, attachmentName, callback) {
+    //
+    // TODO: Update cache?
+    //
+    return this.connection.rawRequest({
+        method: &#x27;GET&#x27;,
+        path: &#x27;/&#x27; + [this.name, querystring.escape(id), attachmentName].join(&#x27;/&#x27;),
+        encoding: null
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+### Buffered
+You can buffer the entire attachment and receive it all at once. The callback function will fire after the download is complete
+or an error occurs. The second parameter in the callback will be the binary data of the attachment
+
+**Syntax**
+```js
+db.<span class="apidocCodeKeywordSpan">getAttachment</span>(documentID, attachmentName, callbackFunction)
+```
+**Example**
+ Say you want to read back an attachment that was saved with the name &#x27;foo.txt&#x27;
+```js
+var doc = &#x3c;some saved document that has an attachment with name *foo.txt*&#x3e;
+var id = doc._id
+var attachmentName = &#x27;foo.txt&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.head" id="apidoc.element.cradle.Database.prototype.head">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>head
+        <span class="apidocSignatureSpan">(id, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">head = function (id, callback) {
+    this.query({
+        method: &#x27;HEAD&#x27;,
+        path: cradle.escape(id)
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.info" id="apidoc.element.cradle.Database.prototype.info">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>info
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">info = function (callback) {
+    this.query({ method: &#x27;GET&#x27; }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.insert" id="apidoc.element.cradle.Database.prototype.insert">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>insert
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insert = function () {
+    throw new Error(&#x22;`insert` is deprecated, use `save` instead&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.list" id="apidoc.element.cradle.Database.prototype.list">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>list
+        <span class="apidocSignatureSpan">(path, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">list = function (path, options) {
+    var callback = new(Args)(arguments).callback;
+        path = path.split(&#x27;/&#x27;);
+
+    this._getOrPostView(
+        [&#x27;_design&#x27;, path[0], &#x27;_list&#x27;, path[1], path[2]].map(querystring.escape).join(&#x27;/&#x27;),
+        options,
+        callback
+    );
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.merge" id="apidoc.element.cradle.Database.prototype.merge">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>merge
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">merge = function () {
+    var args     = Array.prototype.slice.call(arguments),
+        callback = args.pop(),
+        doc      = args.pop(),
+        id       = args.pop() || doc._id;
+
+    this._merge(id, doc, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+Note that when saving a document this way, CouchDB overwrites the existing document with the new one. If you want to update only
+ certain fields of the document, you have to fetch it first (with `get`), make your changes, then resave the modified document with
+ the above method.
+
+If you only want to update one or more attributes, and leave the others untouched, you can use the `merge()` method:
+
+``` js
+  db.<span class="apidocCodeKeywordSpan">merge</span>(&#x27;luke&#x27;, {jedi: true}, function (err, res) {
+      // Luke is now a jedi,
+      // but remains on the dark side of the force.
+  });
+```
+
+Note that we didn&#x27;t pass a `_rev`, this only works because we previously saved a full version of &#x27;luke&#x27;, and the `
+cache` option is enabled.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.post" id="apidoc.element.cradle.Database.prototype.post">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>post
+        <span class="apidocSignatureSpan">(doc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">post = function (doc, callback) {
+    var cache = this.cache;
+    this.query({
+        method: &#x27;POST&#x27;,
+        path: &#x27;/&#x27;,
+        body: doc
+    }, function (e, res) {
+        if (! e) {
+            cache.save(res.id, cradle.merge({}, doc, { _id: res.id, _rev: res.rev }));
+        }
+        callback &#x26;&#x26; callback(e, res);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+db.cache.save(&#x27;docid&#x27;, doc);  //saves the provided document into the cache
+```
+
+**Example**
+This is an example from an application using express to receive a post request when a documentid has been updated.
+```js
+app.<span class="apidocCodeKeywordSpan">post</span>(&#x27;/dbcache/:id&#x27;, function (req, res) {
+if(db.cache.has(req.params.id)) {
+    db.cache.purge(req.params.id);
+  res.send({ status:&#x22;ok&#x22;, id: req.params.id, action: &#x27;deleted&#x27;});
+}
+else {
+  res.send({ status:&#x22;not found&#x22;, id: req.params.id, action: &#x22;none&#x22;}, 404);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.put" id="apidoc.element.cradle.Database.prototype.put">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>put
+        <span class="apidocSignatureSpan">(id, doc, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (id, doc, callback) {
+    var cache = this.cache;
+    if (typeof(id) !== &#x27;string&#x27;) {
+        throw new(TypeError)(&#x22;id must be a string&#x22;);
+    }
+    this.query({
+        method: &#x27;PUT&#x27;,
+        path: cradle.escape(id),
+        body: doc
+    }, function (e, res) {
+        if (! e) {
+            cache.save(id, cradle.merge({}, doc, { _id: id, _rev: res.rev }));
+        }
+        callback &#x26;&#x26; callback(e, res);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.query" id="apidoc.element.cradle.Database.prototype.query">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>query
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (options, callback) {
+    options.path = [this.name, options.path].filter(Boolean).join(&#x27;/&#x27;);
+    return this.connection.request(options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.remove" id="apidoc.element.cradle.Database.prototype.remove">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>remove
+        <span class="apidocSignatureSpan">(id, rev)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">remove = function (id, rev) {
+    var that = this, doc, args = new(Args)(arguments);
+
+    //
+    // Removes the document with `id` at `rev`.
+    //
+    function remove() {
+        that.query({
+            method: &#x27;DELETE&#x27;,
+            path: cradle.escape(id),
+            query: { rev: rev }
+        }, function (err, res) {
+            if (! err) {
+                that.cache.purge(id);
+            }
+            args.callback(err, res);
+        });
+    }
+
+    if (typeof(rev) !== &#x27;string&#x27;) {
+        if (doc = this.cache.get(id)) {
+            rev = doc._rev;
+        }
+        else {
+            return this.get(id, function (err, _doc) {
+                if (err) {
+                    return args.callback(err);
+                }
+                else if (!_doc._rev) {
+                    return args.callback(new Error(&#x27;No _rev found for &#x27; + id));
+                }
+
+                rev = _doc._rev;
+                remove();
+            });
+        }
+    }
+
+    remove();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+### removing documents _(DELETE)_ ###
+
+To remove a document, you call the `remove()` method, passing the latest document revision.
+
+``` js
+  db.<span class="apidocCodeKeywordSpan">remove</span>(&#x27;luke&#x27;, &#x27;1-94B6F82&#x27;, function (err, res) {
+      // Handle response
+  });
+```
+
+If `remove` is called without a revision, and the document was recently fetched from the database, it will attempt to use the cached
+ document&#x27;s revision, providing caching is enabled.
+
+### update handlers ###
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.removeAttachment" id="apidoc.element.cradle.Database.prototype.removeAttachment">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>removeAttachment
+        <span class="apidocSignatureSpan">(doc, attachmentName, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeAttachment = function (doc, attachmentName, callback) {
+    var params,
+        rev,
+        id,
+        error;
+
+    if (typeof doc === &#x27;string&#x27;) {
+        id = doc;
+    } else {
+        id  = doc.id  || doc._id;
+        rev = doc.rev || doc._rev;
+    }
+
+    if (!id) {
+        error = new(TypeError)(&#x22;first argument must be a document id&#x22;);
+        if (!callback) {
+            throw error;
+        }
+        return callback(error);
+    }
+
+    if (!rev &#x26;&#x26; this.cache.has(id)) {
+        rev = this.cache.get(id)._rev;
+    } else if (rev) {
+        rev = rev.replace(/\&#x22;/g, &#x27;&#x27;);
+    }
+
+    this.query({
+        method: &#x27;DELETE&#x27;,
+        path: [querystring.escape(id), attachmentName].join(&#x27;/&#x27;),
+        query: { rev: rev }
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+readStream.pipe(writeStream)
+```
+## Removing
+You can remove uploaded attachments with a _id and an attachment name
+
+**Syntax**
+```js
+db.<span class="apidocCodeKeywordSpan">removeAttachment</span>(documentID, attachmentName, callbackFunction)
+```
+**Example**
+ Say you want to remove an attachment that was saved with the name &#x27;foo.txt&#x27;
+```js
+var doc = &#x3c;some saved document that has an attachment with name *foo.txt*&#x3e;
+var id = doc._id
+var attachmentName = &#x27;foo.txt&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.replicate" id="apidoc.element.cradle.Database.prototype.replicate">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>replicate
+        <span class="apidocSignatureSpan">(target, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">replicate = function (target, options, callback) {
+    if (typeof(options) === &#x27;function&#x27;) {
+        callback = options;
+        options = {};
+    }
+    this.connection.replicate(cradle.merge({ source: this.name, target: target }, options), callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.save" id="apidoc.element.cradle.Database.prototype.save">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>save
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function () {
+    var args = new(Args)(arguments),
+        array = args.all.slice(0), doc, id, rev;
+
+    if (Array.isArray(args.first)) {
+        doc = args.first;
+    } else {
+        doc = array.pop();
+        id  = array.shift();
+        rev = array.shift();
+    }
+    this._save(id, rev, doc, args.callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var db = new(cradle.Connection)().database(&#x27;starwars&#x27;);
+
+db.get(&#x27;vader&#x27;, function (err, doc) {
+    doc.name; // &#x27;Darth Vader&#x27;
+    assert.equal(doc.force, &#x27;dark&#x27;);
+});
+
+db.<span class="apidocCodeKeywordSpan">save</span>(&#x27;skywalker&#x27;, {
+    force: &#x27;light&#x27;,
+    name: &#x27;Luke Skywalker&#x27;
+}, function (err, res) {
+    if (err) {
+        // Handle error
+    } else {
+        // Handle success
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.saveAttachment" id="apidoc.element.cradle.Database.prototype.saveAttachment">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>saveAttachment
+        <span class="apidocSignatureSpan">(doc, attachment, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">saveAttachment = function (doc, attachment, callback) {
+    var attachmentName,
+        options = {},
+        self = this,
+        params,
+        error,
+        rev,
+        id;
+
+    if (typeof doc === &#x27;string&#x27;) {
+        id = doc;
+    } else {
+        id  = doc.id  || doc._id;
+        rev = doc.rev || doc._rev;
+    }
+
+    if (!id) {
+        error = new(TypeError)(&#x22;Missing document id.&#x22;);
+        if (!callback) {
+            throw error;
+        }
+        return callback(error);
+    }
+
+    attachmentName = typeof attachment !== &#x27;string&#x27; ? attachment.name : attachment;
+
+    if (!rev &#x26;&#x26; this.cache.has(id)) {
+        params = { rev: this.cache.get(id)._rev };
+    } else if (rev) {
+        params = { rev: rev.replace(/\&#x22;/g, &#x27;&#x27;) };
+    }
+
+    options.method = &#x27;PUT&#x27;;
+    options.path = &#x27;/&#x27; + [this.name, querystring.escape(id), attachmentName].join(&#x27;/&#x27;);
+    options.headers = {
+        &#x27;Content-Type&#x27;: attachment[&#x27;content-type&#x27;] ||
+            attachment.contentType ||
+            attachment[&#x27;Content-Type&#x27;] ||
+            &#x27;text/plain&#x27;
+    };
+
+    if (attachment.contentLength) {
+        options.headers[&#x27;Content-Length&#x27;] = attachment.contentLength;
+    }
+
+    if (attachment.body) {
+        options.body = attachment.body;
+    }
+
+    if (params) {
+        options.path += (&#x27;?&#x27; + querystring.stringify(params));
+    }
+
+    return this.connection.rawRequest(options, function (err, res, body) {
+        if (err) {
+            return callback(err);
+        }
+
+        var result = JSON.parse(body);
+        result.headers = res.headers;
+        result.headers.status = res.statusCode;
+
+        if (result.headers.status == 201) {
+            if (self.cache.has(id)) {
+                // FIXME: Is this supposed to be this.cached?
+                cached = self.cache.store[id].document;
+                cached._rev = result.rev;
+                cached._attachments = cached._attachments || {};
+                cached._attachments[attachmentName] = { stub: true };
+            }
+
+            return callback(null, result);
+        }
+
+        callback(result);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+-----------
+Cradle supports writing, reading, and removing attachments. The read and write operations can be either buffered or streaming
+## Writing ##
+You can buffer the entire attachment body and send it all at once as a single request. The callback function will fire after the
+ attachment upload is complete or an error occurs
+
+**Syntax**
+```js
+db.<span class="apidocCodeKeywordSpan">saveAttachment</span>(idData, attachmentData, callbackFunction)
+```
+**Example**
+Say you want to save a text document as an attachment with the name &#x27;fooAttachment.txt&#x27; and the content &#x27;Foo document
+ text&#x27;
+``` js
+var doc = &#x3c;some existing document&#x3e;
+var id = doc._id
+var rev = doc._rev
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.temporaryView" id="apidoc.element.cradle.Database.prototype.temporaryView">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>temporaryView
+        <span class="apidocSignatureSpan">(doc, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">temporaryView = function (doc, options, callback) {
+    if (!callback &#x26;&#x26; typeof options === &#x27;function&#x27;) {
+        callback = options;
+        options = null;
+    }
+
+    if (options &#x26;&#x26; typeof options === &#x27;object&#x27;) {
+        [&#x27;key&#x27;, &#x27;keys&#x27;, &#x27;startkey&#x27;, &#x27;endkey&#x27;].forEach(function (k) {
+            if (k in options) {
+                options[k] = JSON.stringify(options[k]);
+            }
+        });
+    }
+
+    return this.query({
+        method: &#x27;POST&#x27;,
+        path: &#x27;_temp_view&#x27;,
+        query: options,
+        body: doc
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+These views can later be queried with `db.view(&#x27;characters/all&#x27;)`, for example.
+
+Here we create a temporary view. WARNING: do not use this in production as it is
+extremely slow (use it to test views).
+
+``` js
+db.<span class="apidocCodeKeywordSpan">temporaryView</span>({
+    map: function (doc) {
+      if (doc.color) emit(doc._id, doc);
+    }
+  }, function (err, res) {
+    if (err) console.log(err);
+    console.log(res);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.update" id="apidoc.element.cradle.Database.prototype.update">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>update
+        <span class="apidocSignatureSpan">(path, id, options, body)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (path, id, options, body) {
+    var args = new(Args)(arguments);
+    path = path.split(&#x27;/&#x27;);
+
+    if (id) {
+      return this.query({
+        method: &#x27;PUT&#x27;,
+        path: [&#x27;_design&#x27;, path[0], &#x27;_update&#x27;, path[1], id].map(querystring.escape).join(&#x27;/&#x27;),
+        query: options,
+        body: body
+      }, args.callback);
+    }
+
+    return this.query({
+        method: &#x27;POST&#x27;,
+        path: [&#x27;_design&#x27;, path[0], &#x27;_update&#x27;, path[1]].map(querystring.escape).join(&#x27;/&#x27;),
+        query: options,
+        body: body
+    }, args.callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+If `remove` is called without a revision, and the document was recently fetched from the database, it will attempt to use the cached
+ document&#x27;s revision, providing caching is enabled.
+
+### update handlers ###
+
+Update handlers can be used by calling the `update()` method, specifying the update handler name, and optionally the document id
+, the query object and the document body object. Only the update handler name is a required function parameter. Note that CouchDB
+ is able to parse query options only if the URI-encoded length is less than 8197 characters. Use the body parameter for larger objects
+.
+
+``` js
+  db.<span class="apidocCodeKeywordSpan">update</span>(&#x27;my_designdoc/update_handler_name&#x27;, &#x27;luke&#x27;, undefined
+, { my_param: false }, function (err, res) {
+      // Handle the response, specified by the update handler
+  });
+```
+
+Connecting with authentication and SSL
+--------------------------------------
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.view" id="apidoc.element.cradle.Database.prototype.view">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>view
+        <span class="apidocSignatureSpan">(path, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">view = function (path, options, callback) {
+    if (typeof options === &#x27;function&#x27;) {
+        callback = options;
+        options = {};
+    }
+
+    path = path.split(&#x27;/&#x27;);
+    path = [&#x27;_design&#x27;, path[0], &#x27;_view&#x27;, path[1]].map(querystring.escape).join(&#x27;/&#x27;);
+
+    return this._getOrPostView(path, options, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+``` js
+  db.get([&#x27;luke&#x27;, &#x27;vader&#x27;], function (err, doc) { ... });
+```
+
+### Querying a view ###
+
+``` js
+  db.<span class="apidocCodeKeywordSpan">view</span>(&#x27;characters/all&#x27;, function (err, res) {
+      res.forEach(function (row) {
+          console.log(&#x22;%s is on the %s side of the force.&#x22;, row.name, row.force);
+      });
+  });
+```
+
+You can access the key and value of the response with forEach using two parameters. An optional third parameter will return the
+id like this example.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.cradle.Database.prototype.viewCleanup" id="apidoc.element.cradle.Database.prototype.viewCleanup">
+        function <span class="apidocSignatureSpan">cradle.Database.prototype.</span>viewCleanup
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">viewCleanup = function (callback) {
+    this.query({
+        method: &#x27;POST&#x27;,
+        path: &#x27;/_view_cleanup&#x27;,
+        headers: {
+            &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
+        }
+    }, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

@@ -1,0 +1,32 @@
+<svg height="462" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="462" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  0.  2017-04-06 17:42:07 +0000   131103 byte  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-06 17:42:07 +0000      504 byte  CHANGELOG.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-06 17:42:07 +0000     1076 byte  LICENSE</tspan>
+<tspan x="10" y="74">  3.  2017-04-06 17:42:07 +0000    20096 byte  README.md</tspan>
+<tspan x="10" y="90">  4.  2017-04-06 17:42:07 +0000     9517 byte  lib/cradle.js</tspan>
+<tspan x="10" y="106">  5.  2017-04-06 17:42:07 +0000     2943 byte  lib/cradle/cache.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-06 17:42:07 +0000     3483 byte  lib/cradle/database/attachments.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-06 17:42:07 +0000     1587 byte  lib/cradle/database/changes.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-06 17:42:07 +0000     7786 byte  lib/cradle/database/documents.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-06 17:42:07 +0000     2003 byte  lib/cradle/database/index.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-06 17:42:07 +0000     4019 byte  lib/cradle/database/views.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-06 17:42:07 +0000      670 byte  lib/cradle/errors.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-06 17:42:07 +0000     4002 byte  lib/cradle/response.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-06 17:42:07 +0000     2642 byte  package.json</tspan>
+<tspan x="10" y="250"> 14.  2017-04-06 17:42:07 +0000     4002 byte  test/cache-test.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-06 17:42:07 +0000     7848 byte  test/connection-test.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-06 17:42:07 +0000    13347 byte  test/database-attachment-test.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-06 17:42:07 +0000     4742 byte  test/database-cache-test.js</tspan>
+<tspan x="10" y="314"> 18.  2017-04-06 17:42:07 +0000     8429 byte  test/database-test.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-06 17:42:07 +0000     4169 byte  test/database-view-test.js</tspan>
+<tspan x="10" y="346"> 20.  2017-04-06 17:42:07 +0000      951 byte  test/errors-test.js</tspan>
+<tspan x="10" y="362"> 21.  2017-04-06 17:42:07 +0000    20096 byte  test/fixtures/README.md</tspan>
+<tspan x="10" y="378"> 22.  2017-04-06 17:42:07 +0000     1044 byte  test/fixtures/databases.json</tspan>
+<tspan x="10" y="394"> 23.  2017-04-06 17:42:07 +0000      612 byte  test/helpers/macros.js</tspan>
+<tspan x="10" y="410"> 24.  2017-04-06 17:42:07 +0000     1717 byte  test/helpers/seed.js</tspan>
+<tspan x="10" y="426"> 25.  2017-04-06 17:42:07 +0000      833 byte  test/raw-request-test.js</tspan>
+<tspan x="10" y="442"> 26.  2017-04-06 17:42:07 +0000     2985 byte  test/response-test.js</tspan>
+</text>
+</svg>
